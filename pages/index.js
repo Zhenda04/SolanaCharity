@@ -29,9 +29,9 @@ const [txHash, setTxHash] = useState(null);
 const organizations = [
     {
     id: 1,
-    name: 'Organization Charity 1',
-    description: 'Description for Organization 1',
-    address: 'blaaaa',
+    name: 'UK Cancer Research',
+    description: 'Together we will beat cancer',
+    address: '31PR8yQkHYHVK2jtcrfmGF389ogGxc5GBkL3HybdTe8c',
     },
     {
     id: 2,
@@ -117,10 +117,10 @@ return (
     <div className="">
         {publicKey ? 
         <div className='place-items-start grid mt-3'>
-            <Button onClick={handleWalletBalanceRequest}>Request Wallet Balance</Button>
+            <Button onClick={handleWalletBalanceRequest}>Check Wallet Balance</Button>
             {status === 'idle' ? <p>Haven't requested any SOL balance yet</p> : null}
             {status === 'loading' ? <p>Requesting your SOL balance tokens</p> : null}
-            {status === 'success' ? <p>We successfully got your balance: {result} SOL</p> : null}
+            {status === 'success' ? <p>SOL Balance: {result} SOL</p> : null}
             {status === 'error' ? <p>{error}</p> : null}
         </div> : null}
     </div>
