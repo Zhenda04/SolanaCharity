@@ -528,18 +528,18 @@
   integrity sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg==
 
 "@solana-mobile/mobile-wallet-adapter-protocol-web3js@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@solana-mobile/mobile-wallet-adapter-protocol-web3js/-/mobile-wallet-adapter-protocol-web3js-2.0.1.tgz#096599cd2073d35f77be9121222e654321b16e85"
-  integrity sha512-zpMEU40PJ2rmRgqXbn7JqyHhrygQLX9MVszAczVDzqg39aMD7yo6VyTI8NEH422JzCj3Cjl9DndQZJRNdqdOHw==
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@solana-mobile/mobile-wallet-adapter-protocol-web3js/-/mobile-wallet-adapter-protocol-web3js-2.0.2.tgz#ddbeee32004b0712cc5a396d9f79ec9a568efbeb"
+  integrity sha512-z1KKJb5v4thNvpncQlohfDpWLCmelEMRtJpmLjocSIUCuy88yLJZ0+LXvFMWP+cdCoakEctI2vH8XAUifxPFBg==
   dependencies:
-    "@solana-mobile/mobile-wallet-adapter-protocol" "^1.0.0"
+    "@solana-mobile/mobile-wallet-adapter-protocol" "^2.0.1"
     bs58 "^5.0.0"
     js-base64 "^3.7.2"
 
-"@solana-mobile/mobile-wallet-adapter-protocol@^1.0.0":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@solana-mobile/mobile-wallet-adapter-protocol/-/mobile-wallet-adapter-protocol-1.0.1.tgz#31bf53610c6502a40a1545b9d73009bf3f32d0d6"
-  integrity sha512-T+xroGLYaYeI8TXy85oNul2m1k/oF9dAW7eRy/MF9up1EQ5SPL5KWFICQfV2gy87jBZd1y0k0M2GayVN7QdQpA==
+"@solana-mobile/mobile-wallet-adapter-protocol@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@solana-mobile/mobile-wallet-adapter-protocol/-/mobile-wallet-adapter-protocol-2.0.1.tgz#8052d3ad1f62c750862c4c624880890f7d045bd5"
+  integrity sha512-UddhYILR886o7q/ZcEBu+CCix9Ns1hNIidTQKkecbz4FeJoO5rARhRuPwFbYoaBlCKvjmg0CkWlVwW3bVu+qJQ==
 
 "@solana-mobile/wallet-adapter-mobile@^2.0.0":
   version "2.0.1"
@@ -4443,7 +4443,7 @@ react@16.13.1:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
 
-react@18.2.0, react@^18.2.0:
+react@^18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
