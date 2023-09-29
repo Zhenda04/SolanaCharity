@@ -18,7 +18,7 @@ const { connection } = useConnection();
 const { getWalletTokenBalance, result, status, error } = useWalletTokenBalance(publicKey, connection);
 
 const [recipientPublicKey, setRecipientPublicKey] = useState('BStZkRJAzUXroTFqbEHyCD4uh5boTLF42BubrJwh1hx7');
-const [sendAmount, setSendAmount] = useState(1);
+const [sendAmount, setSendAmount] = useState(0.01);
 
 const wallet = useAnchorWallet();
 const [txHash, setTxHash] = useState(null);
@@ -57,6 +57,8 @@ async function sendSOLToSpecificAddress() {
 
     const txHash = await connection.sendRawTransaction(signature.serialize());
     await connection.confirmTransaction(txHash);
+
+    setTxHash(txHash);
 
     alert(`Transaction successful. Transaction hash: ${txHash}`);
     } catch (err) {
@@ -122,8 +124,8 @@ return (
         {txHash ? (
             <a
             href={`https://explorer.solana.com/tx/${txHash}?cluster=devnet`}
-            target='_blank'
-            className='text-black backdrop-blur-2xl rounded-xl px-4 py-2 bg-black'
+            target='Check'
+            className='text-white backdrop-blur-2xl rounded-xl px-4 py-2 bg-black'
             >
             Open Explorer
             </a>
