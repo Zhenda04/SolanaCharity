@@ -6,6 +6,8 @@ import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import dynamic from 'next/dynamic';
 import Header from '@/components/Header';
 import Button from '@/components/Button';
+// import 'bootstrap/dist/css/bootstrap.css';
+
 
 import { PublicKey, Transaction, SystemProgram } from '@solana/web3.js';
 
@@ -17,11 +19,44 @@ const { connection } = useConnection();
 
 const { getWalletTokenBalance, result, status, error } = useWalletTokenBalance(publicKey, connection);
 
-const [recipientPublicKey, setRecipientPublicKey] = useState('BStZkRJAzUXroTFqbEHyCD4uh5boTLF42BubrJwh1hx7');
-const [sendAmount, setSendAmount] = useState(1);
+const [recipientPublicKey, setRecipientPublicKey] = useState('');
+const [sendAmount, setSendAmount] = useState();
 
 const wallet = useAnchorWallet();
 const [txHash, setTxHash] = useState(null);
+
+
+const organizations = [
+    {
+    id: 1,
+    name: 'Organization Charity 1',
+    description: 'Description for Organization 1',
+    address: 'blaaaa',
+    },
+    {
+    id: 2,
+    name: 'Organization Charity 2',
+    description: 'Description for Organization 2',
+    address: 'BStZkRJAzUXroTFqbEHyCD4uh5boTLF42BubrJwh1hx7',
+    },
+    {
+        id: 3,
+        name: 'Organization Charity 3',
+        description: 'Description for Organization 3',
+        address: 'BStZkRJAzUXroTFqbEHyCD4uh5boTLF42BubrJwh1hx7',
+    },
+    {
+        id: 4,
+        name: 'Organization Charity 4',
+        description: 'Description for Organization 4',
+        address: 'BStZkRJAzUXroTFqbEHyCD4uh5boTLF42BubrJwh1hx7',
+    },
+];
+function handleOrganizationSelect(org) {
+    setRecipientPublicKey(org.address);
+}
+
+
 
 async function sendSOLToSpecificAddress() {
     if (!recipientPublicKey || sendAmount <= 0) {
@@ -80,7 +115,6 @@ return (
         </div>
     </div>
     <div className="">
-
         {publicKey ? 
         <div className='place-items-start grid mt-3'>
             <Button onClick={handleWalletBalanceRequest}>Request Wallet Balance</Button>
@@ -91,31 +125,53 @@ return (
         </div> : null}
     </div>
 
+    <div className="flex justify-center mx-4 space-x-4 mt-3">
+    {/* Render organization cards */}
+    {organizations.map((org) => (
+        <div key={org.id} className='w-80 rounded-lg overflow-hidden shadow-md border border-gray-300'>
+        <div className="w-full h-40">
+            <img src={window.location.origin+ "/char.jpg"} alt="SOLove"/>
+        </div>
+        <div className="p-4">
+            <h2 className='font-bold text-xl'>{org.name}</h2>
+            <p className='text-gray-200'>{org.description}</p>
+            <p className='text-gray-200 truncate'>Public Address: {org.address}</p>
+            {/* Add a button or link to select this organization */}
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2" onClick={() => handleOrganizationSelect(org)}>Select</button>
+        </div>
+        </div>
+    ))}
+    </div>
+
     <div className='mt-4'>
-        <h2 className='font-900 text-lg font-sans'>Recipient</h2>
+        <h2 className='font-900 text-lg font-sans'>Recipient's Public Address</h2>
         <div className='grid grid-cols-2 gap-4'>
         <input
             type='text'
             placeholder="Recipient's Public Key"
             value={recipientPublicKey}
             onChange={(e) => setRecipientPublicKey(e.target.value)}
-            className='p-2 border border-gray-300 rounded'
+            className='placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-m font-sans font-medium text-m'
+            style={{ color: '#303030' }}
         />
         <input
             type='number'
             placeholder='Amount SOL'
             value={sendAmount}
             onChange={(e) => setSendAmount(e.target.value)}
-            className='p-2 border border-gray-300 rounded'
+            className='placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-m font-sans font-medium text-m'
+            style={{ color: '#303030' }}
         />
         </div>
-        <Button onClick={sendSOLToSpecificAddress} className='mt-10'>
-        Send
-        </Button>
+        <div className='mt-2'>
+            <Button onClick={sendSOLToSpecificAddress} className=''>
+            Send
+            </Button>
+        </div>
     </div>
     <div className='mt-6'>
         <p className='font-semibold'>Transaction ID:</p>
-        <div className='mt-4 text-xs'>{txHash}</div>
+        <div className='mt-4 text-m'>{txHash}</div>
         <div className='flex mt-4'>
         {txHash ? (
             <a

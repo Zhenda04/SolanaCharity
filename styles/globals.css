@@ -3,18 +3,18 @@
 @tailwind utilities;
 
 :root {
-  /* --foreground-rgb: 0, 0, 0;
+  --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255; */
+  --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
-    /* --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* overflow: auto; */
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 30, 30, 30; 
+    --background-end-rgb: 30, 30, 30; 
   }
 }
 
@@ -26,4 +26,14 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+.BlogCard{
+  background-color: darkgray;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #ccc;
+    box-sizing: border-box;
+    /* font-size: 24px; */
+    margin: 16px;
+    padding: 16px;
+    text-align: center;
 }
