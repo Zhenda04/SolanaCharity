@@ -83,7 +83,7 @@ function Home() {
         },
         {
             id: 3,
-            name: 'Beirut Blast Lebanon Disaster Relief Fund',
+            name: 'Beirut Disaster Relief Fund',
             description: `The "Beirut Blast Lebanon Disaster Relief Fund" was established to support Lebanon and its citizens during unprecedented social, economic, and political turmoil that has persisted for months, if not years.
 
             Lebanon is facing multiple crises, and its citizens are in increasingly dire need of support. We aim to address this critical situation and provide assistance to the affected individuals and their families.
@@ -226,12 +226,12 @@ function Home() {
                             <div className="relative pt-1 mt-5">
                                 <div className="flex mb-2 items-center justify-between">
                                     <div>
-                                        <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-500 bg-blue-200">
-                                            Donation Progress
+                                        <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-white-500 bg-green-500">
+                                            Fund Progress
                                         </span>
                                     </div>
                                     <div className="text-right">
-                                        <span className="text-xs font-semibold inline-block text-blue-500">
+                                        <span className="text-xs font-semibold inline-block text-yellow-400">
                                             {Math.round((org.amountCollected / org.amount) * 100)}%
                                         </span>
                                     </div>
@@ -245,7 +245,7 @@ function Home() {
                                 {isOpen && org.id == selectedModal && (
                                     <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50">
                                         <div className="p-6 rounded-lg w-1/2 shadow-xl z-10 fixed top-1/10 left-1/4" style={{ backgroundColor: '#242424' }}>
-                                            <button className="ml-1 mb-1 bg-blue-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mt-2" onClick={() => setIsOpen(false)}>
+                                            <button className="ml-1 mb-1 bg-red-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mt-2" onClick={() => setIsOpen(false)}>
                                                 &times;
                                             </button>
                                             <div className='p-5'>
