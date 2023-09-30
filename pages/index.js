@@ -6,6 +6,7 @@ import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import dynamic from 'next/dynamic';
 import Header from '@/components/Header';
 import Button from '@/components/Button';
+import Link from 'next/link';
 // import 'bootstrap/dist/css/bootstrap.css';
 
 
@@ -30,26 +31,35 @@ const organizations = [
     {
     id: 1,
     name: 'UK Cancer Research',
-    description: 'Together we will beat cancer',
+    description: 'Cancer is relentless. But so are we. Whether you fundraise, pledge to leave a gift in your will or donate. Every supports life-saving research. Play your part and together we will beat cancer.​[learn more]',
     address: '31PR8yQkHYHVK2jtcrfmGF389ogGxc5GBkL3HybdTe8c',
+    img: 'char.jpg',
+    alt: 'uk',
+    link: 'www.google.com'
     },
     {
     id: 2,
-    name: 'Organization Charity 2',
-    description: 'Description for Organization 2',
+    name: 'Send a Child to School',
+    description: 'Every children deserve education. Thousands of children in Africa drop out of school each year simply because their parents cannot afford to cover tuition and school-related costs. [learn more]',
     address: 'BStZkRJAzUXroTFqbEHyCD4uh5boTLF42BubrJwh1hx7',
+    img: 'char2.jpg',
+    alt: 'send child to School'
     },
     {
         id: 3,
-        name: 'Organization Charity 3',
-        description: 'Description for Organization 3',
-        address: 'BStZkRJAzUXroTFqbEHyCD4uh5boTLF42BubrJwh1hx7',
+        name: 'Beirut Blast Lebanon Disaster Relief Fund',
+        description: 'Lebanon and its citizens are experiencing unprecedented social, economic and political turmoil for months if not years. [learn more]',
+        address: '7zDQyqoocARgZN16RifaBjWwuevgougfJPYK6ozz7PNF',
+        img: 'char3.jpg',
+        alt: 'Disaster relief'
     },
     {
         id: 4,
-        name: 'Organization Charity 4',
-        description: 'Description for Organization 4',
+        name: 'Donation Pool',
+        description: 'Do not know who to donate? Donate to the donation pool so that the donation will be distributed to fundraiser randomly once the pool is fulled [learn more]',
         address: 'BStZkRJAzUXroTFqbEHyCD4uh5boTLF42BubrJwh1hx7',
+        img: 'char5.jpg',
+        alt: 'Earthquake relief'
     },
 ];
 function handleOrganizationSelect(org) {
@@ -126,25 +136,29 @@ return (
     </div>
 
     <div className="flex justify-center mx-4 space-x-4 mt-3">
-    {/* Render organization cards */}
-    {organizations.map((org) => (
-        <div key={org.id} className='w-80 rounded-lg overflow-hidden shadow-md border border-gray-300'>
-        <div className="w-full h-40">
-            <img src={window.location.origin+ "/char.jpg"} alt="SOLove"/>
+      {/* Render organization cards */}
+      {organizations.map((org) => (
+    <div key={org.id} className={`w-80 rounded-lg overflow-hidden shadow-md border border-gray-300 cursor-pointer ${org.id === 4 ? 'w-80 rounded-lg overflow-hidden shadow-md border border-yellow-300 cursor-pointer' : ''}`}>
+    <Link href={`/organization/${org.id}`}>
+            <div>
+              <div className="w-full h-50">
+                <img src={window.location.origin + '/' + org.img} alt={org.alt} />
+              </div>
+              <div className="p-4">
+                <h2 className='font-bold text-xl'>{org.name}</h2>
+                <p className='text-gray-200'>{org.description}</p>
+              </div>
+            </div>
+          </Link>
+          <button className="ml-1 mb-1 bg-blue-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mt-2" onClick={() => handleOrganizationSelect(org)}>
+            Donate
+          </button>
         </div>
-        <div className="p-4">
-            <h2 className='font-bold text-xl'>{org.name}</h2>
-            <p className='text-gray-200'>{org.description}</p>
-            <p className='text-gray-200 truncate'>Public Address: {org.address}</p>
-            {/* Add a button or link to select this organization */}
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2" onClick={() => handleOrganizationSelect(org)}>Select</button>
-        </div>
-        </div>
-    ))}
+      ))}
     </div>
 
     <div className='mt-4'>
-        <h2 className='font-900 text-lg font-sans'>Recipient's Public Address</h2>
+        <h2 className='font-900 text-lg font-sans'>Recipient</h2>
         <div className='grid grid-cols-2 gap-4'>
         <input
             type='text'
@@ -153,6 +167,7 @@ return (
             onChange={(e) => setRecipientPublicKey(e.target.value)}
             className='placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-m font-sans font-medium text-m'
             style={{ color: '#303030' }}
+            readOnly
         />
         <input
             type='number'
