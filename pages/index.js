@@ -53,9 +53,9 @@ function Home() {
             img: 'char.jpg',
             alt: 'uk',
             link: 'www.google.com',
-            createdDate: "5, Sep, 2023",
-            startDate: "2, Oct, 2023",
-            endDate: "10, Dec, 2023",
+            createdDate: "5, June, 2023",
+            startDate: "1, Aug, 2023",
+            endDate: "28, Dec, 2023",
             amount: 20000,
             amountCollected: 14000,
             numberOfDonors: 342
@@ -74,9 +74,9 @@ function Home() {
             address: 'BStZkRJAzUXroTFqbEHyCD4uh5boTLF42BubrJwh1hx7',
             img: 'char2.jpg',
             alt: 'send child to School',
-            createdDate: "5, Sep, 2023",
-            startDate: "2, Oct, 2023",
-            endDate: "10, Dec, 2023",
+            createdDate: "23, June, 2023",
+            startDate: "1, Oct, 2023",
+            endDate: "28, Oct, 2023",
             amount: 140000,
             amountCollected: 65000,
             numberOfDonors: 80
@@ -96,8 +96,8 @@ function Home() {
             img: 'char3.jpg',
             alt: 'Disaster relief',
             createdDate: "5, Sep, 2023",
-            startDate: "2, Oct, 2023",
-            endDate: "10, Dec, 2023",
+            startDate: "1, Oct, 2023",
+            endDate: "26, Jan, 2023",
             amount: 10000,
             amountCollected: 5000,
             numberOfDonors: 33
@@ -116,8 +116,8 @@ function Home() {
             address: 'BStZkRJAzUXroTFqbEHyCD4uh5boTLF42BubrJwh1hx7',
             img: 'char5.jpg',
             alt: 'Earthquake relief',
-            createdDate: "5, Sep, 2023",
-            startDate: "2, Oct, 2023",
+            createdDate: "15, Sep, 2023",
+            startDate: "8, Oct, 2023",
             endDate: "10, Dec, 2023",
             amount: 6500,
             amountCollected: 30,
@@ -237,7 +237,7 @@ function Home() {
                                     </div>
                                 </div>
                                 <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-blue-200">
-                                    <div style={{ width: "70%" }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-400"></div>
+                                    <div style={{ width: Math.round((org.amountCollected / org.amount) * 100)+"%" }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-400"></div>
                                 </div>
                             </div>
 
